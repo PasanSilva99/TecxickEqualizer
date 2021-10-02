@@ -25,7 +25,7 @@
 </div>
 
 <p align="center">
-<a href="#installation">Installation</a> | <a href="#usage">Usage</a> | <a href="#usage-exampes">Usage Examples</a> | <a href="#contributing">Contributing</a> |<a href="#features"> Features</a> | <a href="#license">License</a> | <a href="Cheatsheet.md">Cheatsheet</a>
+<a href="#installation">Installation</a> | <a href="#usage">Usage</a> | <a href="#usage-exampes">Usage Examples</a> | <a href="#contributing">Contributing</a> |<a href="#features"> Features</a> | <a href="#license">License</a>
 </p>
 <br />
 <p align="center">
