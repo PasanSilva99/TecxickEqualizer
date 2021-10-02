@@ -36,7 +36,7 @@
 </td>
 <td>
 <ul>
-    This application is a extension for the Equalizer APO. This Will provide a better user friendly UI to edit the configuration in the configuration.
+    This application is an extension for the Equalizer APO. This will provide a better user friendly UI to edit the configuration in the configuration.
 </ul>
 <img width="1000" height="0">
 </td>
