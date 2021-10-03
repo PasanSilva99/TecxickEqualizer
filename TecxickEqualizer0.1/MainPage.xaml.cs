@@ -42,5 +42,10 @@ namespace TecxickEqualizer0._1
         {
 
         }
+
+        private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+
+        }
     }
 }

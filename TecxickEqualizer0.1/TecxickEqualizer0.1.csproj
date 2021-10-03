@@ -130,8 +130,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\bg.jpg" />
     <Content Include="Assets\power.png" />
     <Content Include="Assets\power.svg" />
+    <Content Include="Assets\TecxickSoftwareLogoT1.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
