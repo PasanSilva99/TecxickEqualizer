@@ -35,18 +35,114 @@
             </Grid.RowDefinitions>
 
             <!-- Sections -->
-            <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100,0,100,0" RenderTransformOrigin="0.5,0.5">
-                <Grid.RenderTransform>
-                    <CompositeTransform ScaleX="2" ScaleY="2"/>
-                </Grid.RenderTransform>
-                <muxc:ProgressRing Style="{StaticResource ProgressRingStyleG}" Width="60" Height="60" Value="00" IsIndeterminate="False" Foreground="#8F00FF" Background="#198F00FF">
-                </muxc:ProgressRing>
-                <Grid Background="#FF232323" CornerRadius="50" Margin="5.5">
-                    <Image Source="/Assets/power.png" Stretch="Fill"></Image>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,35,0,0">
+                <Grid>
+                    <muxc:ProgressRing Grid.Row="0" Style="{StaticResource ProgressRingStyleG}" Value="100" IsIndeterminate="False" Foreground="#8F00FF" Background="#FF420000" Height="120.3" Width="120" RenderTransformOrigin="0.5,0.5">
+                        <muxc:ProgressRing.RenderTransform>
+                            <CompositeTransform Rotation="180"/>
+                        </muxc:ProgressRing.RenderTransform>
+
+                    </muxc:ProgressRing>
+
+                    <Grid Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"/>
+
+                    <Viewbox Width="50" Height="50" Stretch="Uniform" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,2">
+                        <Canvas Height="45" Width="41">
+                            <Path Data="M29.7588 10.5742C32.968 12.518 35.4427 15.4193 36.8123 18.8439C38.1818 22.2684 38.3725 26.0318 37.3557 29.5704C36.3389 33.109 34.1695 36.2324 31.1722 38.4729C28.1749 40.7134 24.5112 41.9503 20.7296 41.9985C16.948 42.0467 13.252 40.9036 10.1953 38.7402C7.13855 36.5769 4.88549 33.5099 3.77352 29.9984C2.66155 26.4869 2.75052 22.72 4.0271 19.2617C5.30368 15.8035 7.69917 12.84 10.8548 10.8151M20.5 3L20.5 19" Stroke="#CECECE" StrokeThickness="5" StrokeStartLineCap="round" StrokeEndLineCap="round" Fill="#00000000" />
+                        </Canvas>
+                    </Viewbox>
                 </Grid>
-                
+                <TextBlock Text="Power" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1" Margin="30,0,30,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="109">
+                    <Grid>
+                        <muxc:ProgressRing Grid.Row="0" Style="{StaticResource ProgressRingStyleG}" Value="75" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
+                            <muxc:ProgressRing.RenderTransform>
+                                <CompositeTransform Rotation="180"/>
+                            </muxc:ProgressRing.RenderTransform>
+
+                        </muxc:ProgressRing>
+
+                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"/>
+
+                        <Grid Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="75%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                        </Grid>
+                    </Grid>
+                    <TextBlock Text="Bass Boost" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0" FontSize="10"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="109">
+                    <Grid>
+                        <muxc:ProgressRing Grid.Row="0" Style="{StaticResource ProgressRingStyleG}" Value="46" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
+                            <muxc:ProgressRing.RenderTransform>
+                                <CompositeTransform Rotation="180"/>
+                            </muxc:ProgressRing.RenderTransform>
+
+                        </muxc:ProgressRing>
+
+                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"/>
+
+                        <Grid Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="46%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" SelectionChanged="TextBlock_SelectionChanged"/>
+                        </Grid>
+                    </Grid>
+                    <TextBlock Text="Details" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0" FontSize="10"/>
+                </StackPanel>
+
+
+
             </Grid>
 
+            <Grid Grid.Row="2" Margin="30,0,30,0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="109">
+                    <Grid>
+                        <muxc:ProgressRing Grid.Row="0" Style="{StaticResource ProgressRingStyleG}" Value="17" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
+                            <muxc:ProgressRing.RenderTransform>
+                                <CompositeTransform Rotation="180"/>
+                            </muxc:ProgressRing.RenderTransform>
+
+                        </muxc:ProgressRing>
+
+                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"/>
+
+                        <Grid Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="17%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                        </Grid>
+                    </Grid>
+                    <TextBlock Text="Width" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0" FontSize="10"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="109">
+                    <Grid>
+                        <muxc:ProgressRing Grid.Row="0" Style="{StaticResource ProgressRingStyleG}" Value="1" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
+
+                        </muxc:ProgressRing>
+
+                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"/>
+
+                        <Grid Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="1%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" SelectionChanged="TextBlock_SelectionChanged"/>
+                        </Grid>
+                    </Grid>
+                    <TextBlock Text="Gain" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0" FontSize="10"/>
+                </StackPanel>
+
+
+
+            </Grid>
         </Grid>
 
         <Grid Grid.Column="1">
