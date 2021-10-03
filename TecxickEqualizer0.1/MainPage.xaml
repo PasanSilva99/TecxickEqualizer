@@ -143,6 +143,19 @@
 
 
             </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox Grid.Column="0" x:Name="cmb_AvailableDevices" HorizontalAlignment="Stretch" VerticalAlignment="Center" PlaceholderText="Select Audio Device" Margin="33,5,11,5" CornerRadius="10" Background="#0F464646" BorderBrush="#FFFF004D"/>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10" Margin="0,0,15,0">
+                    <ToggleButton x:Name="btn_ChannelLeft" Content="L" CornerRadius="10" Background="#FFFF004D"/>
+                    <ToggleButton x:Name="btn_ChannelRight" Content="R" CornerRadius="10" Background="#FFFF004D"/>
+                </StackPanel>
+            </Grid>
+
         </Grid>
 
         <Grid Grid.Column="1">
