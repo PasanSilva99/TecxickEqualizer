@@ -107,22 +107,22 @@
             <!-- Sections -->
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,35,0,0">
                 <Grid>
-                    <muxc:ProgressRing Grid.Row="0" Value="100" IsIndeterminate="False" Foreground="#8F00FF" Background="#FF420000" Height="120.3" Width="120" RenderTransformOrigin="0.5,0.5">
+                    <muxc:ProgressRing x:Name="prg_power" Grid.Row="0" Value="100" IsIndeterminate="False" Foreground="#8F00FF" Background="#FF420000" Height="120.3" Width="120" RenderTransformOrigin="0.5,0.5">
                         <muxc:ProgressRing.RenderTransform>
                             <CompositeTransform Rotation="180"/>
                         </muxc:ProgressRing.RenderTransform>
 
                     </muxc:ProgressRing>
 
-                    <Grid Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"/>
+                    <Grid Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E" PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited"/>
 
-                    <Viewbox Width="50" Height="50" Stretch="Uniform" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,2">
-                        <Canvas Height="45" Width="41">
+                    <Viewbox IsHitTestVisible="False" Width="50" Height="50" Stretch="Uniform" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,2">
+                        <Canvas IsHitTestVisible="False" Height="45" Width="41">
                             <Path Data="M29.7588 10.5742C32.968 12.518 35.4427 15.4193 36.8123 18.8439C38.1818 22.2684 38.3725 26.0318 37.3557 29.5704C36.3389 33.109 34.1695 36.2324 31.1722 38.4729C28.1749 40.7134 24.5112 41.9503 20.7296 41.9985C16.948 42.0467 13.252 40.9036 10.1953 38.7402C7.13855 36.5769 4.88549 33.5099 3.77352 29.9984C2.66155 26.4869 2.75052 22.72 4.0271 19.2617C5.30368 15.8035 7.69917 12.84 10.8548 10.8151M20.5 3L20.5 19" Stroke="#CECECE" StrokeThickness="5" StrokeStartLineCap="round" StrokeEndLineCap="round" Fill="#00000000" />
                         </Canvas>
                     </Viewbox>
                 </Grid>
-                <TextBlock Text="Power" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0"/>
+                <TextBlock  Text="Power" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0"/>
             </StackPanel>
 
             <Grid Grid.Row="1" Margin="30,0,30,0" >
@@ -133,17 +133,17 @@
 
                 <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="109">
                     <Grid>
-                        <muxc:ProgressRing Grid.Row="0" Value="75" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
+                        <muxc:ProgressRing x:Name="prg_bass" Grid.Row="0" Value="75" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5" Minimum="0" Maximum="100">
                             <muxc:ProgressRing.RenderTransform>
                                 <CompositeTransform Rotation="180"/>
                             </muxc:ProgressRing.RenderTransform>
 
                         </muxc:ProgressRing>
 
-                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"/>
+                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"  PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited" PointerWheelChanged="Knob_PointerWheelChanged" Tag="KnobBass"/>
 
-                        <Grid Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock Text="75%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                        <Grid IsHitTestVisible="False" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock x:Name="txt_bass" IsHitTestVisible="False" Text="75%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
                         </Grid>
                     </Grid>
                     <TextBlock Text="Bass Boost" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0" FontSize="10"/>
@@ -151,17 +151,17 @@
 
                 <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="109">
                     <Grid>
-                        <muxc:ProgressRing Grid.Row="0" Value="46" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
+                        <muxc:ProgressRing x:Name="prg_details" Grid.Row="0" Value="46" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5" Minimum="0" Maximum="100">
                             <muxc:ProgressRing.RenderTransform>
                                 <CompositeTransform Rotation="180"/>
                             </muxc:ProgressRing.RenderTransform>
 
                         </muxc:ProgressRing>
 
-                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"/>
+                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"  PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited" PointerWheelChanged="Knob_PointerWheelChanged" Tag="KnobDetails"/>
 
-                        <Grid Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock Text="46%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" SelectionChanged="TextBlock_SelectionChanged"/>
+                        <Grid IsHitTestVisible="False" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock x:Name="txt_Details" IsHitTestVisible="False" Text="46%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" SelectionChanged="TextBlock_SelectionChanged"/>
                         </Grid>
                     </Grid>
                     <TextBlock Text="Details" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0" FontSize="10"/>
@@ -179,17 +179,17 @@
 
                 <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="109">
                     <Grid>
-                        <muxc:ProgressRing Grid.Row="0" Value="17" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
+                        <muxc:ProgressRing x:Name="prg_width" Grid.Row="0" Value="17" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5" Minimum="0" Maximum="100">
                             <muxc:ProgressRing.RenderTransform>
                                 <CompositeTransform Rotation="180"/>
                             </muxc:ProgressRing.RenderTransform>
 
                         </muxc:ProgressRing>
 
-                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"/>
+                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"  PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited" PointerWheelChanged="Knob_PointerWheelChanged" Tag="KnobWidth"/>
 
-                        <Grid Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock Text="17%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                        <Grid IsHitTestVisible="False" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock x:Name="txt_Width" IsHitTestVisible="False" Text="17%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
                         </Grid>
                     </Grid>
                     <TextBlock Text="Width" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0" FontSize="10"/>
@@ -197,14 +197,16 @@
 
                 <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="109">
                     <Grid>
-                        <muxc:ProgressRing Grid.Row="0" Value="1" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
-
+                        <muxc:ProgressRing x:Name="prg_gain" Grid.Row="0" Value="0" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5"  Minimum="-35" Maximum="30">
+                            <muxc:ProgressRing.RenderTransform>
+                                <CompositeTransform Rotation="180"/>
+                            </muxc:ProgressRing.RenderTransform>
                         </muxc:ProgressRing>
 
-                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"/>
+                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"  PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited" PointerWheelChanged="Knob_PointerWheelChanged" Tag="KnobGain"/>
 
-                        <Grid Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock Text="1%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" SelectionChanged="TextBlock_SelectionChanged"/>
+                        <Grid IsHitTestVisible="False" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock x:Name="txt_gain" IsHitTestVisible="False" Text="1%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" SelectionChanged="TextBlock_SelectionChanged"/>
                         </Grid>
                     </Grid>
                     <TextBlock Text="Gain" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,0" FontSize="10"/>
@@ -306,8 +308,8 @@
                 <StackPanel Orientation="Horizontal" Spacing="13.5">
                     <StackPanel Spacing="10">
                         <TextBlock Text="25" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq1" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq25">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -321,8 +323,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="40" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq2" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq40">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -336,8 +338,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="63" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq3" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq63">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -351,8 +353,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="100" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq4" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq100">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -366,8 +368,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="160" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq5" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq160">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -381,8 +383,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="250" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq6" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq250">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -396,8 +398,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="400" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq7" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq400">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -411,8 +413,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="630" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq8" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq630">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -426,8 +428,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="1k" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq9" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq1k">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -441,8 +443,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="1.6k" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq10" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq1p6k">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -456,8 +458,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="2.5k" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq11" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq2p5k">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -471,8 +473,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="4k" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq12" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq4k">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -486,8 +488,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="6.3k" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq13" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq6p3k">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -501,8 +503,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="10k" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq14" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq10k">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
@@ -516,8 +518,8 @@
                     </StackPanel>
                     <StackPanel Spacing="10">
                         <TextBlock Text="16k" HorizontalAlignment="Center"/>
-                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
-                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                        <Slider x:Name="eq15" Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E" Tag="eq16k">
                             <Slider.Resources>
                                 <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
                                 <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
