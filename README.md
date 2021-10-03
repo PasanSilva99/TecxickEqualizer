@@ -44,7 +44,7 @@
 </table>
 </p>
 
-![App Screenshot](/docs/assets/images/img1.jpeg)
+![App Screenshot](/Main Screen.png)
 
 ## Installation
 You can get this application from the Microsoft store
