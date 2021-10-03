@@ -7,20 +7,90 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d" 
-    Height="610" Width="1057" Background="{ThemeResource SystemControlAcrylicWindowBrush}" RequestedTheme="Dark" Loaded="Page_Loaded">
+    d:Height="610" d:Width="1057" Background="Black" RequestedTheme="Dark" Loaded="Page_Loaded">
     <Page.Resources>
-        <Style x:Key="ProgressRingStyleG" TargetType="muxc:ProgressRing">
-
-        </Style>
 
         <LinearGradientBrush x:Key="gb1" EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="#FFFF00CA" Offset="0.005"/>
             <GradientStop Color="Red" Offset="1"/>
         </LinearGradientBrush>
+        <Style x:Key="ButtonStyle1" TargetType="Button">
+            <Setter Property="Background" Value="{ThemeResource ButtonBackground}"/>
+            <Setter Property="BackgroundSizing" Value="OuterBorderEdge"/>
+            <Setter Property="Foreground" Value="{ThemeResource ButtonForeground}"/>
+            <Setter Property="BorderBrush" Value="#FF004D"/>
+            <Setter Property="BorderThickness" Value="{ThemeResource ButtonBorderThemeThickness}"/>
+            <Setter Property="Padding" Value="{StaticResource ButtonPadding}"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+            <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}"/>
+            <Setter Property="FocusVisualMargin" Value="-3"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter x:Name="ContentPresenter" AutomationProperties.AccessibilityView="Raw" BackgroundSizing="{TemplateBinding BackgroundSizing}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" CornerRadius="10" ContentTransitions="{TemplateBinding ContentTransitions}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#65001E"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#FF002A"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonForegroundPointerOver}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonBackgroundPressed}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonBorderBrushPressed}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonForegroundPressed}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerDownThemeAnimation Storyboard.TargetName="ContentPresenter"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Background">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonBackgroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="BorderBrush">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonBorderBrushDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonForegroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </ContentPresenter>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Page.Resources>
 
 
-    <Grid >
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>
@@ -37,7 +107,7 @@
             <!-- Sections -->
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,35,0,0">
                 <Grid>
-                    <muxc:ProgressRing Grid.Row="0" Style="{StaticResource ProgressRingStyleG}" Value="100" IsIndeterminate="False" Foreground="#8F00FF" Background="#FF420000" Height="120.3" Width="120" RenderTransformOrigin="0.5,0.5">
+                    <muxc:ProgressRing Grid.Row="0" Value="100" IsIndeterminate="False" Foreground="#8F00FF" Background="#FF420000" Height="120.3" Width="120" RenderTransformOrigin="0.5,0.5">
                         <muxc:ProgressRing.RenderTransform>
                             <CompositeTransform Rotation="180"/>
                         </muxc:ProgressRing.RenderTransform>
@@ -63,7 +133,7 @@
 
                 <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="109">
                     <Grid>
-                        <muxc:ProgressRing Grid.Row="0" Style="{StaticResource ProgressRingStyleG}" Value="75" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
+                        <muxc:ProgressRing Grid.Row="0" Value="75" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
                             <muxc:ProgressRing.RenderTransform>
                                 <CompositeTransform Rotation="180"/>
                             </muxc:ProgressRing.RenderTransform>
@@ -81,7 +151,7 @@
 
                 <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="109">
                     <Grid>
-                        <muxc:ProgressRing Grid.Row="0" Style="{StaticResource ProgressRingStyleG}" Value="46" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
+                        <muxc:ProgressRing Grid.Row="0" Value="46" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
                             <muxc:ProgressRing.RenderTransform>
                                 <CompositeTransform Rotation="180"/>
                             </muxc:ProgressRing.RenderTransform>
@@ -109,7 +179,7 @@
 
                 <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="109">
                     <Grid>
-                        <muxc:ProgressRing Grid.Row="0" Style="{StaticResource ProgressRingStyleG}" Value="17" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
+                        <muxc:ProgressRing Grid.Row="0" Value="17" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
                             <muxc:ProgressRing.RenderTransform>
                                 <CompositeTransform Rotation="180"/>
                             </muxc:ProgressRing.RenderTransform>
@@ -127,7 +197,7 @@
 
                 <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="109">
                     <Grid>
-                        <muxc:ProgressRing Grid.Row="0" Style="{StaticResource ProgressRingStyleG}" Value="1" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
+                        <muxc:ProgressRing Grid.Row="0" Value="1" IsIndeterminate="False" Foreground="#FFFF004D" Background="#FF5B001B" Height="80" Width="80" RenderTransformOrigin="0.5,0.5">
 
                         </muxc:ProgressRing>
 
@@ -149,7 +219,10 @@
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
 
-                <ComboBox Grid.Column="0" x:Name="cmb_AvailableDevices" HorizontalAlignment="Stretch" VerticalAlignment="Center" PlaceholderText="Select Audio Device" Margin="33,5,11,5" CornerRadius="10" Background="#0F464646" BorderBrush="#FFFF004D"/>
+                <ComboBox Grid.Column="0" x:Name="cmb_AvailableDevices" HorizontalAlignment="Stretch" VerticalAlignment="Center" PlaceholderText="Select Audio Device" Margin="33,5,11,5" CornerRadius="10" Background="#0F464646" BorderBrush="#FFFF004D">
+                    <ComboBoxItem Content="Test Item 1"/>
+                    <ComboBoxItem Content="Test Item 2"/>
+                </ComboBox>
                 <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="10" Margin="0,0,15,0">
                     <ToggleButton x:Name="btn_ChannelLeft" Content="L" CornerRadius="10" Background="#FFFF004D"/>
                     <ToggleButton x:Name="btn_ChannelRight" Content="R" CornerRadius="10" Background="#FFFF004D"/>
@@ -158,7 +231,8 @@
 
         </Grid>
 
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="1" RenderTransformOrigin="0.5,0.5">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="4*"/>
                 <RowDefinition Height="1*"/>
@@ -166,7 +240,298 @@
             </Grid.RowDefinitions>
 
             <!-- Test Rectangle -->
+            <Image Grid.Row="0" Grid.RowSpan="3" Source="/Assets/bg.jpg" Stretch="UniformToFill" Margin="2,-215,-311,138" RenderTransformOrigin="0.5,0.5" NineGrid="55,0,-42,0" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
 
+            <Rectangle Grid.Row="0" Grid.RowSpan="2">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#00000000" Offset="0"/>
+                        <GradientStop Color="Black" Offset="0.894"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Grid.Row="0" Grid.RowSpan="2">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="90"/>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="#00000000" Offset="0.444"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Grid.Row="2" Fill="#000"/>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Tecxick Audio Equalizer" Margin="14,12,19,0" FontSize="20"/>
+                    <TextBlock Text="A Free and opensource Audio Equalizer to configure the Equalizer APO Settings. Check our other opensource projects here." TextWrapping="WrapWholeWords" Margin="33,17,18,0" FontSize="12"/>
+                </StackPanel>
+                <Image Grid.Column="1" Source="/Assets/TecxickSoftwareLogoT1.png" Margin="30,55,30,10"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox Grid.Column="0" x:Name="cmb_Preset" HorizontalAlignment="Stretch" VerticalAlignment="Center" PlaceholderText="Flat" Margin="7,5,11,5" CornerRadius="10" Background="#0F464646" BorderBrush="#FFFF004D">
+                    <ComboBoxItem Content="Test Item 1"/>
+                    <ComboBoxItem Content="Test Item 2"/>
+                </ComboBox>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="20" Margin="0,0,30,0">
+                    <Button Style="{StaticResource ButtonStyle1}" Content="Reset"/>
+                    <Button Style="{StaticResource ButtonStyle1}" Content="Flatten"/>
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <StackPanel Orientation="Horizontal" Spacing="13.5">
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="25" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="40" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="63" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="100" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="160" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="250" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="400" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="630" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="1k" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="1.6k" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="2.5k" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="4k" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="6.3k" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="10k" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="16k" HorizontalAlignment="Center"/>
+                        <Slider Minimum="-30" Maximum="30" StepFrequency="1"
+                            SmallChange="1" LargeChange="5" Value="0" Orientation="Vertical" Height="260" Foreground="#FFDD0054" Background="#FF5F006E">
+                            <Slider.Resources>
+                                <SolidColorBrush x:Key="SliderTrackFillPointerOver" Color="#800094" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPointerOver" Color="#FF002A" />
+                                <SolidColorBrush x:Key="SliderThumbBackground" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPointerOver" Color="#ffff" />
+                                <SolidColorBrush x:Key="SliderTrackFillPressed" Color="#32003B" />
+                                <SolidColorBrush x:Key="SliderTrackValueFillPressed" Color="#DA0035" />
+                                <SolidColorBrush x:Key="SliderThumbBackgroundPressed" Color="#DA0035" />
+                            </Slider.Resources>
+                        </Slider>
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Page>
