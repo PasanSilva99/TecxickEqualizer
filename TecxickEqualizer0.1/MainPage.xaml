@@ -4,14 +4,60 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TecxickEqualizer0._1"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Height="610" Width="1057">
-    <Page.Background>
-        <AcrylicBrush Opacity="0"/>
-    </Page.Background>
+    mc:Ignorable="d" 
+    Height="610" Width="1057" Background="{ThemeResource SystemControlAcrylicWindowBrush}" RequestedTheme="Dark" Loaded="Page_Loaded">
+    <Page.Resources>
+        <Style x:Key="ProgressRingStyleG" TargetType="muxc:ProgressRing">
+
+        </Style>
+
+        <LinearGradientBrush x:Key="gb1" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFFF00CA" Offset="0.005"/>
+            <GradientStop Color="Red" Offset="1"/>
+        </LinearGradientBrush>
+    </Page.Resources>
+
 
     <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
 
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Sections -->
+            <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100,0,100,0" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform ScaleX="2" ScaleY="2"/>
+                </Grid.RenderTransform>
+                <muxc:ProgressRing Style="{StaticResource ProgressRingStyleG}" Width="60" Height="60" Value="00" IsIndeterminate="False" Foreground="#8F00FF" Background="#198F00FF">
+                </muxc:ProgressRing>
+                <Grid Background="#FF232323" CornerRadius="50" Margin="5.5">
+                    <Image Source="/Assets/power.png" Stretch="Fill"></Image>
+                </Grid>
+                
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Test Rectangle -->
+
+        </Grid>
     </Grid>
 </Page>
