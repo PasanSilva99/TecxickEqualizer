@@ -133,7 +133,7 @@ namespace TecxickEqualizer0._1
             }
             else
             {
-                if (GainLevel > -35) GainLevel++;
+                if (GainLevel > -35) GainLevel--;
                 txt_gain.Text = GainLevel.ToString("F0");
                 prg_gain.Value = GainLevel;
             }
@@ -149,7 +149,7 @@ namespace TecxickEqualizer0._1
             }
             else
             {
-                if (WidthLevel > 40) WidthLevel--;
+                if (WidthLevel > 0) WidthLevel--;
                 txt_Width.Text = (WidthLevel / 40 * 100).ToString("F0") + "%";
                 prg_width.Value = (int)(WidthLevel / 40 * 100);
             }
@@ -165,7 +165,7 @@ namespace TecxickEqualizer0._1
             }
             else
             {
-                if (DetailsLevel > 40) DetailsLevel--;
+                if (DetailsLevel > 0) DetailsLevel--;
                 txt_Details.Text = (DetailsLevel / 40 * 100).ToString("F0") + "%";
                 prg_details.Value = (int)(DetailsLevel / 40 * 100);
             }
