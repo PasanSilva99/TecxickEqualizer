@@ -114,7 +114,7 @@
 
                     </muxc:ProgressRing>
 
-                    <Grid Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E" PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited"/>
+                    <Grid Width="100" Height="100" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E" PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited" PointerPressed="Power_PointerPressed" Tag="PowerBtn"/>
 
                     <Viewbox IsHitTestVisible="False" Width="50" Height="50" Stretch="Uniform" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,2">
                         <Canvas IsHitTestVisible="False" Height="45" Width="41">
@@ -140,7 +140,9 @@
 
                         </muxc:ProgressRing>
 
-                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"  PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited" PointerWheelChanged="Knob_PointerWheelChanged" Tag="KnobBass"/>
+                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"  PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited" PointerWheelChanged="Knob_PointerWheelChanged" Tag="KnobBass">
+
+                        </Grid>
 
                         <Grid IsHitTestVisible="False" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock x:Name="txt_bass" IsHitTestVisible="False" Text="75%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
@@ -158,7 +160,9 @@
 
                         </muxc:ProgressRing>
 
-                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"  PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited" PointerWheelChanged="Knob_PointerWheelChanged" Tag="KnobDetails"/>
+                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"  PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited" PointerWheelChanged="Knob_PointerWheelChanged" Tag="KnobDetails">
+
+                        </Grid>
 
                         <Grid IsHitTestVisible="False" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock x:Name="txt_Details" IsHitTestVisible="False" Text="46%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" SelectionChanged="TextBlock_SelectionChanged"/>
@@ -186,7 +190,9 @@
 
                         </muxc:ProgressRing>
 
-                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"  PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited" PointerWheelChanged="Knob_PointerWheelChanged" Tag="KnobWidth"/>
+                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"  PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited" PointerWheelChanged="Knob_PointerWheelChanged" Tag="KnobWidth">
+
+                        </Grid>
 
                         <Grid IsHitTestVisible="False" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock x:Name="txt_Width" IsHitTestVisible="False" Text="17%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
@@ -203,7 +209,9 @@
                             </muxc:ProgressRing.RenderTransform>
                         </muxc:ProgressRing>
 
-                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"  PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited" PointerWheelChanged="Knob_PointerWheelChanged" Tag="KnobGain"/>
+                        <Grid Width="65" Height="65" HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="100" Background="#FF2E2E2E"  PointerEntered="prgButton_PointerEntered" PointerExited="prgButton_PointerExited" PointerWheelChanged="Knob_PointerWheelChanged" Tag="KnobGain">
+
+                        </Grid>
 
                         <Grid IsHitTestVisible="False" Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock x:Name="txt_gain" IsHitTestVisible="False" Text="1%" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" SelectionChanged="TextBlock_SelectionChanged"/>
@@ -221,7 +229,9 @@
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
 
-                <ComboBox Grid.Column="0" x:Name="cmb_AvailableDevices" HorizontalAlignment="Stretch" VerticalAlignment="Center" PlaceholderText="Select Audio Device" Margin="33,5,11,5" CornerRadius="10" Background="#0F464646" BorderBrush="#FFFF004D">
+                <TextBlock x:Name="txt_knobTip" Opacity="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Scroll to change the value of knobs" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#FF9B3ED0" FontSize="10"/>
+
+                <ComboBox Grid.Column="0" x:Name="cmb_AvailableDevices" HorizontalAlignment="Stretch" VerticalAlignment="Center" PlaceholderText="Select Audio Device" Margin="33,0,11,0" CornerRadius="10" Background="#0F464646" BorderBrush="#FFFF004D">
                     <ComboBoxItem Content="Test Item 1"/>
                     <ComboBoxItem Content="Test Item 2"/>
                 </ComboBox>
@@ -299,7 +309,7 @@
 
                 <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Spacing="20" Margin="0,0,30,0">
                     <Button Style="{StaticResource ButtonStyle1}" Content="Reset"/>
-                    <Button Style="{StaticResource ButtonStyle1}" Content="Flatten"/>
+                    <Button Style="{StaticResource ButtonStyle1}" Content="Flatten" Click="Flatten_Click"/>
                 </StackPanel>
 
             </Grid>
