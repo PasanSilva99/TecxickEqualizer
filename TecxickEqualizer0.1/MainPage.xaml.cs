@@ -31,6 +31,7 @@ namespace TecxickEqualizer0._1
         private Double DetailsLevel = 0;
         private Double WidthLevel = 0;
         private Double GainLevel = 0;
+        private bool PowerStatus = true;
         
         public MainPage()
         {
@@ -62,11 +63,13 @@ namespace TecxickEqualizer0._1
         private void prgButton_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
             KnobHoverBrush(sender);
+            if ((sender as Grid).Tag.ToString() != "PowerBtn") ShowKnobTip(true);
         }
 
         private void prgButton_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             KnobDefaultBrush(sender);
+            if((sender as Grid).Tag.ToString() != "PowerBtn") ShowKnobTip(false);
         }
 
         private void KnobHoverBrush(object sender)
@@ -83,6 +86,7 @@ namespace TecxickEqualizer0._1
 
         private void Knob_PointerWheelChanged(object sender, PointerRoutedEventArgs e)
         {
+            ShowKnobTip(false);
             var tag = (sender as Grid).Tag.ToString();
 
             if (e.GetCurrentPoint(sender as Grid).Properties.MouseWheelDelta > 0)
@@ -120,6 +124,18 @@ namespace TecxickEqualizer0._1
                         ChangeGain('-');
                         break;
                 }
+            }
+        }
+
+        private void ShowKnobTip(bool c)
+        {
+            if (c)
+            {
+                txt_knobTip.Opacity = 1;
+            }
+            else
+            {
+                txt_knobTip.Opacity = 0;
             }
         }
 
@@ -187,5 +203,22 @@ namespace TecxickEqualizer0._1
             }
         }
 
+        private void Power_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            PowerStatus = !PowerStatus;
+            if (PowerStatus)
+            {
+                prg_power.Value = 0;
+            }
+            else
+            {
+                prg_power.Value = 100;
+            }
+        }
+
+        private void Flatten_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
