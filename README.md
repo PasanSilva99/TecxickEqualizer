@@ -47,7 +47,7 @@
 ![App Screenshot](/docs/assets/images/MainScreen.png)
 
 ## Installation
-You can get this application from the Microsoft store
+You will be able to get this application from the Microsoft store
 
 ## Contributing
 
